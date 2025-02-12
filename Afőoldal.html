@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventi Elmélkedések</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    font-family: 'Playfair Display', serif;
+    background: #5F4799; /* Nagyon élénk adventi lila */
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;	
+    justify-content: center;
+    align-items: center;
+       }
+        /* Navigáció */
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            padding: 15px 0;
+            position: absolute;
+            top: 0;
+            text-align: center;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .menu > li {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .menu > li > a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu li:hover > a {
+            background: #4b0082;
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+
+        /* Almenük */
+        .submenu {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            top: 100%;
+            left: 0;
+            width: 200px;
+            z-index: 1000;
+        }
+
+        .submenu li {
+            position: relative;
+        }
+
+        .submenu a {
+            padding: 10px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .submenu li:hover > a {
+            background: #6a0dad;
+        }
+
+        .submenu .submenu {
+            left: 100%;
+            top: 0;
+        }
+
+        .menu li:hover > .submenu,
+        .submenu li:hover > .submenu {
+            display: block;
+        }
+
+        /* Tartalom */
+        .container {
+         max-width: 1500px; /* Nagyobb méret */
+         background: rgba(0, 0, 0, 0.6); /* Sötétebb háttér a kontrasztért */
+         padding: 50px; /* Több belső tér */
+         border-radius: 30px; /* Lekerekített sarkok */
+         border: 3px solid gold; /* Vastagabb arany szegély */
+         box-shadow: 0 0 20px rgba(255, 215, 0, 1); /* Erős arany fényhatás */
+         text-align: center; /* Középre igazított szöveg */
+         font-size: 25px; /* Nagyobb betűméret */
+         font-weight: bold; /* Félkövér szöveg */
+         color: white; /* Fehér szöveg a jobb olvashatóságért */
+         margin-top: 75px; /* Kicsit lentebb hozza a szöveget */
+        }
+       /* Lábléc */
+        .footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
+        .gyertyak-container {
+            position: absolute;
+            top: 125px; /* A container fölé helyezi a gyertyákat */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .gyertya {
+            width: 50px;
+            height: 100px;
+            border-radius: 5px;
+            position: relative;
+            opacity: 0.3;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #gyertya1 { background: purple; }
+        #gyertya2 { background: purple; }
+        #gyertya3 { background: pink; }
+        #gyertya4 { background: purple; }
+
+        /* Láng animáció */
+        .lang {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 15px;
+            height: 25px;
+            background: orange;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            box-shadow: 0 0 10px yellow;
+            animation: flame 1.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes flame {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+            100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+     <!-- Navigációs sáv -->
+    <div class="navbar">
+        <ul class="menu">
+            <li><a href="#">Főoldal</a></li>
+            <!-- A egyházi év -->
+            <li>
+                <a href="#">A egyházi év ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">1. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">1. nap</a></li>
+                            <li><a href="#">2. nap</a></li>
+                            <li><a href="#">3. nap</a></li>
+                            <li><a href="#">4. nap</a></li>
+                            <li><a href="#">5. nap</a></li>
+                            <li><a href="#">6. nap</a></li>
+                            <li><a href="#">7. nap</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">2. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">8. nap</a></li>
+                            <li><a href="#">9. nap</a></li>
+                            <li><a href="#">10. nap</a></li>
+                            <li><a href="#">11. nap</a></li>
+                            <li><a href="#">12. nap</a></li>
+                            <li><a href="#">13. nap</a></li>
+                            <li><a href="#">14. nap</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">3. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">15. nap</a></li>
+                            <li><a href="#">16. nap</a></li>
+                            <li><a href="#">17. nap</a></li>
+                            <li><a href="#">18. nap</a></li>
+                            <li><a href="#">19. nap</a></li>
+                            <li><a href="#">20. nap</a></li>
+                            <li><a href="#">21. nap</a></li>
+                </ul>
+            </li>
+            <li><a href="#">4. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">22. nap</a></li>
+                            <li><a href="#">23. nap</a></li>
+                            <li><a href="#">24. nap</a></li>
+                            <li><a href="#">25. nap</a></li>
+                   </ul>
+                </li>
+             </ul>
+          </li>
+            <!-- B egyházi év -->
+            <li>
+                <a href="#">B egyházi év ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">1. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">1. nap</a></li>
+                            <li><a href="#">2. nap</a></li>
+                            <li><a href="#">3. nap</a></li>
+                            <li><a href="#">4. nap</a></li>
+                            <li><a href="#">5. nap</a></li>
+                            <li><a href="#">6. nap</a></li>
+                            <li><a href="#">7. nap</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">2. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">8. nap</a></li>
+                            <li><a href="#">9. nap</a></li>
+                            <li><a href="#">10. nap</a></li>
+                            <li><a href="#">11. nap</a></li>
+                            <li><a href="#">12. nap</a></li>
+                            <li><a href="#">13. nap</a></li>
+                            <li><a href="#">14. nap</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">3. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">15. nap</a></li>
+                            <li><a href="#">16. nap</a></li>
+                            <li><a href="#">17. nap</a></li>
+                            <li><a href="#">18. nap</a></li>
+                            <li><a href="#">19. nap</a></li>
+                            <li><a href="#">20. nap</a></li>
+                            <li><a href="#">21. nap</a></li>
+                </ul>
+            </li>
+            <li><a href="#">4. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">22. nap</a></li>
+                            <li><a href="#">23. nap</a></li>
+                            <li><a href="#">24. nap</a></li>
+                            <li><a href="#">25. nap</a></li>
+                   </ul>
+                </li>
+             </ul>
+          </li>
+            <!-- C egyházi év -->
+            <li>
+                <a href="#">C egyházi év ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">1. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">1. nap</a></li>
+                            <li><a href="#">2. nap</a></li>
+                            <li><a href="#">3. nap</a></li>
+                            <li><a href="#">4. nap</a></li>
+                            <li><a href="#">5. nap</a></li>
+                            <li><a href="#">6. nap</a></li>
+                            <li><a href="#">7. nap</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">2. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">8. nap</a></li>
+                            <li><a href="#">9. nap</a></li>
+                            <li><a href="#">10. nap</a></li>
+                            <li><a href="#">11. nap</a></li>
+                            <li><a href="#">12. nap</a></li>
+                            <li><a href="#">13. nap</a></li>
+                            <li><a href="#">14. nap</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">3. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">15. nap</a></li>
+                            <li><a href="#">16. nap</a></li>
+                            <li><a href="#">17. nap</a></li>
+                            <li><a href="#">18. nap</a></li>
+                            <li><a href="#">19. nap</a></li>
+                            <li><a href="#">20. nap</a></li>
+                            <li><a href="#">21. nap</a></li>
+                </ul>
+            </li>
+            <li><a href="#">4. hét ▼</a>
+                        <ul class="submenu">
+                            <li><a href="#">22. nap</a></li>
+                            <li><a href="#">23. nap</a></li>
+                            <li><a href="#">24. nap</a></li>
+                            <li><a href="#">25. nap</a></li>
+                   </ul>
+                </li>
+             </ul>
+          </li>
+        </ul>
+    </div>
+    <!-- Gyertyák -->
+    <div class="gyertyak-container">
+        <div class="gyertya" id="gyertya1"><div class="lang" id="lang1"></div></div>
+        <div class="gyertya" id="gyertya2"><div class="lang" id="lang2"></div></div>
+        <div class="gyertya" id="gyertya3"><div class="lang" id="lang3"></div></div>
+        <div class="gyertya" id="gyertya4"><div class="lang" id="lang4"></div></div>
+    </div>
+
+    <!-- Főoldal Tartalom -->
+    <div class="container">
+        <h1>Advent minden napjára</h1>
+        <p>Erre az oldalra, advent minden napján felkerül egy napi evangéliumi részlet (római katolikus egyházi évenként: A,B,C) és egy hozzá kapcsolódó rövid elmélkedés.</p>
+        <p>Őrangyal, a lap szerkesztője boldog vagyok, ha valakit egy mondat is megragad, amit tovább tud gondolni, és akkor már nem megy hiába fáradozásom.</p>
+        <p>Csendes és remény teli várakozást kívánok minden embernek, s majdan boldog, és örömteli karácsonyi ünnepeket.
+    </div>
+    <!-- Lábléc -->
+    <div class="footer">© 2025 Adventi Elmélkedések. Minden jog fenntartva.</div>
+    <script>
+    function adventiGyertyak() {
+        const datum = new Date();
+        const honap = datum.getMonth() + 1;
+        const nap = datum.getDate();
+        let gyertyaSzam = 0;
+
+        if (honap === 12 && nap >= 03) gyertyaSzam = 1;  // 1. advent (dec. 03.)
+        if (honap === 12 && nap >= 10) gyertyaSzam = 2; // 2. advent (dec. 10.)
+        if (honap === 12 && nap >= 17) gyertyaSzam = 3; // 3. advent (dec. 17.)
+        if (honap === 12 && nap >= 24) gyertyaSzam = 4; // 4. advent (dec. 24.)
+
+        for (let i = 1; i <= gyertyaSzam; i++) {
+            document.getElementById("gyertya" + i).style.opacity = "1";
+            document.getElementById("lang" + i).style.opacity = "1";
+        }
+    }
+     window.onload = adventiGyertyak;
+  </script>
+ </body>
+</html>
