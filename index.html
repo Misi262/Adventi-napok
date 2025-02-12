@@ -166,6 +166,30 @@
             0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
             100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
         }
+        /* Mobil nézet (max. 600px széles képernyőkre) */
+@media (max-width: 600px) {
+    .container {
+        font-size: 1rem; /* Kisebb betűméret mobilon */
+        padding: 10px; /* Kisebb belső tér */
+    }
+    
+    .gyertyak-container {
+        flex-direction: column; /* Gyertyák függőlegesen helyezkedjenek el kis képernyőn */
+        gap: 10px; /* Kisebb távolság a gyertyák között */
+    }
+}
+
+/* Tabletes nézet (max. 1024px széles kijelzőkre) */
+@media (max-width: 1024px) {
+    .container {
+        font-size: 1.1rem;
+        padding: 20px;
+    }
+
+    .gyertyak-container {
+        gap: 20px;
+    }
+}
     </style>
 </head>
 <body>
