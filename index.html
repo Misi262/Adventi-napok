@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         * {
-            margin: 0%;
+            margin: 0px;
             padding: 0%;
             box-sizing: border-box;
         }
@@ -28,9 +28,9 @@
         .navbar {
             background: rgba(0, 0, 0, 0.8);
             width: 100%;
-            padding: 15% 0%;
+            padding: 15 0px;
             position: absolute;
-            top: 0%;
+            top: 0px;
             text-align: center;
         }
 
@@ -42,20 +42,20 @@
 
         .menu > li {
             position: relative;
-            margin: 0 15%;
+            margin: 0 15px;
         }
 
         .menu > li > a {
             color: white;
             text-decoration: none;
-            padding: 10% 15%;
+            padding: 10 15%;
             display: block;
             transition: all 0.3s ease-in-out;
         }
 
         .menu li:hover > a {
             background: #4b0082;
-            border-radius: 5%;
+            border-radius: 5px;
             transform: scale(1.1);
         }
 
@@ -66,9 +66,9 @@
             background: rgba(0, 0, 0, 0.9);
             list-style: none;
             padding: 0%;
-            margin: 0%;
-            top: 100%;
-            left: 0%;
+            margin: 0px;
+            top: 100px;
+            left: 0px;
             width: 200%;
             z-index: 1000;
         }
@@ -100,17 +100,17 @@
 
         /* Tartalom */
         .container {
-         max-width: 1500%; /* Nagyobb méret */
+         max-width: 1500px /* Nagyobb méret */
          background: rgba(0, 0, 0, 0.6); /* Sötétebb háttér a kontrasztért */
          padding: 50%; /* Több belső tér */
-         border-radius: 30%; /* Lekerekített sarkok */
-         border: 3% solid gold; /* Vastagabb arany szegély */
-         box-shadow: 0 0 20% rgba(255, 215, 0, 1); /* Erős arany fényhatás */
+         border-radius: 30px; /* Lekerekített sarkok */
+         border: 3px solid gold; /* Vastagabb arany szegély */
+         box-shadow: 0 0 20px rgba(255, 215, 0, 1); /* Erős arany fényhatás */
          text-align: center; /* Középre igazított szöveg */
-         font-size: 25%; /* Nagyobb betűméret */
+         font-size: 25px; /* Nagyobb betűméret */
          font-weight: bold; /* Félkövér szöveg */
          color: white; /* Fehér szöveg a jobb olvashatóságért */
-         margin-top: 75%; /* Kicsit lentebb hozza a szöveget */
+         margin-top: 75px; /* Kicsit lentebb hozza a szöveget */
         }
        /* Lábléc */
         .footer {
@@ -121,22 +121,22 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            font-size: 14%;
+            font-size: 14px;
         }
         .gyertyak-container {
             position: absolute;
-            top: 125%; /* A container fölé helyezi a gyertyákat */
-            left: 50%;
-            transform: translateX(-50%);
+            top: 125px; /* A container fölé helyezi a gyertyákat */
+            left: 50px;
+            transform: translateX(-50px);
             display: flex;
             justify-content: center;
-            gap: 50%;
+            gap: 50px;
         }
 
         .gyertya {
             width: 50%;
             height: 100%;
-            border-radius: 5%;
+            border-radius: 5px;
             position: relative;
             opacity: 0.3;
             transition: opacity 1s ease-in-out;
@@ -150,21 +150,21 @@
         /* Láng animáció */
         .lang {
             position: absolute;
-            top: -20%;
-            left: 50%;
+            top: -20px;
+            left: 50px;
             width: 15%;
             height: 25%;
             background: orange;
-            border-radius: 50%;
-            transform: translateX(-50%);
+            border-radius: 50px;
+            transform: translateX(-50px);
             opacity: 0;
-            box-shadow: 0 0 10% yellow;
+            box-shadow: 0 0 10px yellow;
             animation: flame 1.5s infinite alternate ease-in-out;
         }
 
         @keyframes flame {
-            0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
-            100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
+            0% { transform: translateX(-50px) scale(1); opacity: 0.8; }
+            100% { transform: translateX(-50px) scale(1.2); opacity: 1; }
         }
         /* Mobil nézet (max. 600px széles képernyőkre) */
 @media (max-width: 600px) {
@@ -179,8 +179,6 @@
         justify-content: center; /* Középre igazítás */
         gap: 10px; /* Kisebb távolság, hogy elférjenek telefonon */
     }
-}
-
 /* Tabletes nézet (max. 1024px széles kijelzőkre) */
 @media (max-width: 1024px) {
     .container {
