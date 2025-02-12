@@ -174,8 +174,10 @@
     }
     
     .gyertyak-container {
-        flex-direction: column; /* Gyertyák függőlegesen helyezkedjenek el kis képernyőn */
-        gap: 10px; /* Kisebb távolság a gyertyák között */
+        flex-direction: row; /* Mindig vízszintes marad */
+        flex-wrap: nowrap; /* Ne törje új sorba */
+        justify-content: center; /* Középre igazítás */
+        gap: 10px; /* Kisebb távolság, hogy elférjenek telefonon */
     }
 }
 
