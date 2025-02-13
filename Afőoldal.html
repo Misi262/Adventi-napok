@@ -14,16 +14,17 @@
         }
 
         body {
-    font-family: 'Playfair Display', serif;
-    background: #5F4799; /* Nagyon élénk adventi lila */
-    text-align: center;
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;	
-    justify-content: center;
-    align-items: center;
-       }
+            font-family: 'Playfair Display', serif;
+            background: #5F4799;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         /* Navigáció */
         .navbar {
             background: rgba(0, 0, 0, 0.8);
@@ -97,22 +98,48 @@
         .submenu li:hover > .submenu {
             display: block;
         }
-
+      
         /* Tartalom */
-        .container {
-         max-width: 1500px; /* Nagyobb méret */
-         background: rgba(0, 0, 0, 0.6); /* Sötétebb háttér a kontrasztért */
-         padding: 50px; /* Több belső tér */
-         border-radius: 30px; /* Lekerekített sarkok */
-         border: 3px solid gold; /* Vastagabb arany szegély */
-         box-shadow: 0 0 20px rgba(255, 215, 0, 1); /* Erős arany fényhatás */
-         text-align: center; /* Középre igazított szöveg */
-         font-size: 25px; /* Nagyobb betűméret */
-         font-weight: bold; /* Félkövér szöveg */
-         color: white; /* Fehér szöveg a jobb olvashatóságért */
-         margin-top: 75px; /* Kicsit lentebb hozza a szöveget */
-        }
-       /* Lábléc */
+      .container {
+    max-width: 90%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 30px;
+    border: 3px solid gold;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+    text-align: justify;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    margin-top: 100px;
+    animation: glow 2s infinite alternate ease-in-out;
+       }
+
+       /* Cím (h1) külön formázása */
+      .container h1 {
+    font-size: 40px;  /* Nagyobb betűméret */
+    text-align: center; /* Középre igazított cím */
+    font-weight: 650; /* Vastagabb betű */
+    color: gold; /* Arany színű cím */
+    text-shadow: 0 0 9px rgba(255, 215, 0, 1); /* Fénylő hatás */
+    margin-bottom: 20px; /* Távolság a tartalomtól */
+      }
+
+       /* Tartalom (p) külön formázása */
+     .container p {
+    font-size: 24px; /* Kisebb betűméret a tartalomhoz */
+    font-weight: 400; /* Normál betűsúly */
+    line-height: 1.4; /* Szellősebb sorköz */
+    color: white; /* Fehér színű szöveg */
+      }
+
+      /* Arany fény pulzáló animáció */
+@keyframes glow {
+    0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+    100% { box-shadow: 0 0 25px rgba(255, 215, 0, 1); }
+      }
+          
+      /* Lábléc */
         .footer {
             background: black;
             color: white;
@@ -122,20 +149,21 @@
             bottom: 0;
             width: 100%;
             font-size: 14px;
-        }
+        }	
         .gyertyak-container {
             position: absolute;
-            top: 125px; /* A container fölé helyezi a gyertyákat */
+            top: 135px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             justify-content: center;
-            gap: 50px;
+            flex-wrap: nowrap;
+            gap: 30px;
         }
 
         .gyertya {
-            width: 50px;
-            height: 100px;
+            width: 60px;
+            height: 120px;
             border-radius: 5px;
             position: relative;
             opacity: 0.3;
@@ -166,10 +194,26 @@
             0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
             100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
         }
+
+        @media (max-width: 600px) {
+            .gyertyak-container {
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+            }
+            .gyertya {
+                width: 20px;
+                height: 60px;
+            }
+            .lang {
+                width: 10px;
+                height: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-     <!-- Navigációs sáv -->
+ <!-- Navigációs sáv -->
     <div class="navbar">
         <ul class="menu">
             <li><a href="#">Főoldal</a></li>
@@ -327,30 +371,12 @@
     <!-- Főoldal Tartalom -->
     <div class="container">
         <h1>Advent minden napjára</h1>
-        <p>Erre az oldalra, advent minden napján felkerül egy napi evangéliumi részlet (római katolikus egyházi évenként: A,B,C) és egy hozzá kapcsolódó rövid elmélkedés.</p>
-        <p>Őrangyal, a lap szerkesztője boldog vagyok, ha valakit egy mondat is megragad, amit tovább tud gondolni, és akkor már nem megy hiába fáradozásom.</p>
-        <p>Csendes és remény teli várakozást kívánok minden embernek, s majdan boldog, és örömteli karácsonyi ünnepeket.
+        <p> Erre az oldalra, advent minden napján felkerül egy napi evangéliumi részlet (római katolikus egyházi évenként: A, B, C) és egy hozzá kapcsolódó rövid elmélkedés.</p>
+        <p> Őrangyal, a lap szerkesztője boldog vagyok, ha valakit egy mondat is megragad, amit tovább tud gondolni, és akkor már nem megy hiába fáradozásom.</p>
+        <p> Csendes és remény teli várakozást kívánok minden embernek, s majdan boldog, és örömteli karácsonyi ünnepeket.</p>
     </div>
+
     <!-- Lábléc -->
     <div class="footer">© 2025 Adventi Elmélkedések. Minden jog fenntartva.</div>
-    <script>
-    function adventiGyertyak() {
-        const datum = new Date();
-        const honap = datum.getMonth() + 1;
-        const nap = datum.getDate();
-        let gyertyaSzam = 0;
-
-        if (honap === 12 && nap >= 03) gyertyaSzam = 1;  // 1. advent (dec. 03.)
-        if (honap === 12 && nap >= 10) gyertyaSzam = 2; // 2. advent (dec. 10.)
-        if (honap === 12 && nap >= 17) gyertyaSzam = 3; // 3. advent (dec. 17.)
-        if (honap === 12 && nap >= 24) gyertyaSzam = 4; // 4. advent (dec. 24.)
-
-        for (let i = 1; i <= gyertyaSzam; i++) {
-            document.getElementById("gyertya" + i).style.opacity = "1";
-            document.getElementById("lang" + i).style.opacity = "1";
-        }
-    }
-     window.onload = adventiGyertyak;
-  </script>
- </body>
+</body>
 </html>
